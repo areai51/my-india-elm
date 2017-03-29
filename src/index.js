@@ -1,6 +1,7 @@
 'use strict';
 
 require('jquery');
+require('tether');
 require('bootstrap');
 
 // Require index.html so it gets copied to dist

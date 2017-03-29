@@ -6,6 +6,7 @@
     "file-loader": "^0.10.1",
     "jquery": "^3.2.1",
     "style-loader": "^0.16.1",
+    "tether": "^1.4.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.3.2",
     "webpack-dev-server": "^2.4.2"
