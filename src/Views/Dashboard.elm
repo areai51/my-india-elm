@@ -1,4 +1,4 @@
-module Views.View exposing (..)
+module Views.Dashboard exposing (..)
 
 import Html exposing (Html, div, text)
 import Msgs exposing (Msg)
