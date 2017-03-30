@@ -9,12 +9,11 @@ import Views.Leaders.List
 
 view : Model -> Html Msg
 view model =
-    div [ class "container-fluid" ] [
-        nav [ class "navbar navbar-inverse bg-inverse" ]
-            [ a [ class "navbar-brand", href "#" ] 
-                [ img [ src "http://seeklogo.com/images/E/elm-logo-9DEF2A830B-seeklogo.com.png", 
-                        height 60,
-                        width 60 ] 
+    div [ class "container-fluid", style [ ("height", "100vh") ] ] [
+        nav [ class "navbar navbar-inverse bg-inverse", style [ ("height", "15vh"), ("padding", "0") ] ]
+            [ a [ class "navbar-brand", href "#", style [("padding", "0")] ] 
+                [ img [ style [("max-height", "15vh")],
+                        src "http://seeklogo.com/images/E/elm-logo-9DEF2A830B-seeklogo.com.png" ] 
                     [] 
                 ] 
             ],
@@ -24,7 +23,7 @@ view model =
             a [ class "nav-link", href "#" ] [ text "Accidents in Cities" ],
             a [ class "nav-link", href "#" ] [ text "Our Rivers" ]
         ],
-        div [ class "container" , style [ ("width", "85%"), ("float", "left") ] ] []
+        div [ class "container" , style [ ("width", "85%"), ("float", "left"), ("height", "85vh") ] ] []
     ]
 
 
