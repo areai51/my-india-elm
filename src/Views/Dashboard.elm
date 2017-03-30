@@ -17,13 +17,15 @@ view model =
                     [] 
                 ] 
             ],
-        nav [ class "nav flex-column" , style [ ("width", "15%"), ("float", "left") ] ] [
+        nav [ class "nav flex-column" , style [ ("width", "15%"), ("float", "left"), ("height", "85vh") ] ] [
             a [ class "nav-link", href "#" ] [ text "Our Leaders" ],
             a [ class "nav-link", href "#" ] [ text "Crime in States" ],
             a [ class "nav-link", href "#" ] [ text "Accidents in Cities" ],
             a [ class "nav-link", href "#" ] [ text "Our Rivers" ]
         ],
-        div [ class "container" , style [ ("width", "85%"), ("float", "left"), ("height", "85vh") ] ] []
+        div [ class "container bg-faded" , style [ ("width", "85%"), ("float", "left"), ("height", "85vh") ] ] [
+            page model
+        ]
     ]
 
 

@@ -1,5 +1,6 @@
 module Models exposing (..)
 
+import RemoteData exposing (WebData)
 
 type alias Model =
     { leaders : List Leader
@@ -8,7 +9,7 @@ type alias Model =
 
 initialModel : Model
 initialModel =
-    { leaders = [ Leader 100 "Sam" "MH" ]
+    { leaders = [ Leader 12 "name" "state" ]
     }
 
 
