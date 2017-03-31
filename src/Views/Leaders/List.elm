@@ -4,20 +4,36 @@ import Html exposing (..)
 import Html.Attributes exposing (class)
 import Msgs exposing (Msg)
 import Models exposing (Leader)
+import RemoteData exposing (WebData)
 
 
-view : List Leader -> Html Msg
-view leaders =
+view : WebData (List Leader) -> Html Msg
+view response =
     div []
         [ nav
-        , list leaders
+        , maybeList response
         ]
 
 
 nav : Html Msg
 nav =
-    div [ class "clearfix mb2 white bg-black" ]
-        [ div [ class "left p2" ] [ text "Leaders" ] ]
+    h1 [ ] [ text "Our Leaders" ]
+
+
+maybeList : WebData (List Leader) -> Html Msg
+maybeList response =
+    case response of
+        RemoteData.NotAsked ->
+            text ""
+
+        RemoteData.Loading ->
+            text "Loading..."
+
+        RemoteData.Success leaders ->
+            list leaders
+
+        RemoteData.Failure error ->
+            text (toString error)
 
 
 list : List Leader -> Html Msg

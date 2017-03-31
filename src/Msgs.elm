@@ -5,5 +5,4 @@ import RemoteData exposing (WebData)
 
 
 type Msg
-    = NoOp
-    --OnFetchPlayers (WebData (List Leader))
+    = OnFetchLeaders (WebData (List Leader))

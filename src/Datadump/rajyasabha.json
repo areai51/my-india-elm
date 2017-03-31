@@ -1,0 +1,1129 @@
+{
+   "leaders":[
+      {
+         "name":"Shri Arun Jaitley",
+         "state":"Gujrat",
+         "attendance":null
+      },
+      {
+         "name":"Shri Manohar Parrikar",
+         "state":"Uttar Pradesh",
+         "attendance":null
+      },
+      {
+         "name":"Shri Mukhtar Abbas Naqvi",
+         "state":"Jharkhand",
+         "attendance":null
+      },
+      {
+         "name":"Smt. Nirmala Sitharaman",
+         "state":"Karnataka",
+         "attendance":null
+      },
+      {
+         "name":"Shri Dharmendra Pradhan",
+         "state":"Bihar",
+         "attendance":null
+      },
+      {
+         "name":"Shri Anil Madhav Dave",
+         "state":"Madhya Pradesh",
+         "attendance":26.666666666666668
+      },
+      {
+         "name":"Shri Vinay Katiyar",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Prabhat Jha",
+         "state":"Madhya Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Mansukh L. Mandaviya",
+         "state":"Gujrat",
+         "attendance":13.333333333333334
+      },
+      {
+         "name":"Dr. Chandan Mitra",
+         "state":"Madhya Pradesh",
+         "attendance":80
+      },
+      {
+         "name":"Dr. Prabhakar Kore",
+         "state":"Karnataka",
+         "attendance":80
+      },
+      {
+         "name":"Shri Nand Kumar Sai",
+         "state":"Chhatisgarh",
+         "attendance":60
+      },
+      {
+         "name":"Shri Tarun Vijay",
+         "state":"Uttara Khand",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Meghraj Jain",
+         "state":"Madhya Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Aayanur Manjunatha",
+         "state":"Karnataka",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Ram Narain Dudi",
+         "state":"Rajasthan",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Chunibhai Kanjibhai Gohel",
+         "state":"Gujrat",
+         "attendance":40
+      },
+      {
+         "name":"Mahant Shambhuprasadji Tundiya",
+         "state":"Gujrat",
+         "attendance":73.33333333333333
+      },
+      {
+         "name":"Shri Lal Sinh Vadodia",
+         "state":"Gujrat",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Ranvijay Singh Judev",
+         "state":"Chhatisgarh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Shwait Malik",
+         "state":"Punjab",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri M. Venkaiah Naidu",
+         "state":"Rajasthan",
+         "attendance":null
+      },
+      {
+         "name":"Shri Ravi Shankar Prasad",
+         "state":"Bihar",
+         "attendance":null
+      },
+      {
+         "name":"Shri Thaawar Chand Gehlot",
+         "state":"Madhya Pradesh",
+         "attendance":null
+      },
+      {
+         "name":"Shri Suresh Prabhu",
+         "state":"Andhra Pradesh",
+         "attendance":null
+      },
+      {
+         "name":"Shri Jagat Prakash Nadda",
+         "state":"Himanchal Pradesh",
+         "attendance":null
+      },
+      {
+         "name":"Shri Prakash Javadekar",
+         "state":"Madhya Pradesh",
+         "attendance":null
+      },
+      {
+         "name":"Chaudhary Birender Singh",
+         "state":"Haryana",
+         "attendance":null
+      },
+      {
+         "name":"Shri Piyush Goyal",
+         "state":"Maharashtra",
+         "attendance":null
+      },
+      {
+         "name":"Smt. Smriti Zubin Irani",
+         "state":"Gujrat",
+         "attendance":null
+      },
+      {
+         "name":"Shri Vijay Goel",
+         "state":"Rajasthan",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri M. J. Akbar",
+         "state":"Madhya Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Ramdas Athawale",
+         "state":"Maharashtra",
+         "attendance":60
+      },
+      {
+         "name":"Shri V.P. Singh Badnore",
+         "state":"Rajasthan",
+         "attendance":100
+      },
+      {
+         "name":"Sardar Sukhdev Singh Dhindsa",
+         "state":"Punjab",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Y. S. Chowdary",
+         "state":"Andhra Pradesh",
+         "attendance":null
+      },
+      {
+         "name":"Shri Sanjay Raut",
+         "state":"Maharashtra",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Dr. Najma A. Heptulla",
+         "state":"Madhya Pradesh",
+         "attendance":null
+      },
+      {
+         "name":"Dr. C.P. Thakur",
+         "state":"Bihar",
+         "attendance":100
+      },
+      {
+         "name":"Shri Bhupender Yadav",
+         "state":"Rajasthan",
+         "attendance":100
+      },
+      {
+         "name":"Dr. Satyanarayan Jatiya",
+         "state":"Madhya Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Sardar Balwinder Singh Bhunder",
+         "state":"Punjab",
+         "attendance":100
+      },
+      {
+         "name":"Shri Naresh Gujral",
+         "state":"Punjab",
+         "attendance":100
+      },
+      {
+         "name":"Shri Rajkumar Dhoot",
+         "state":"Maharashtra",
+         "attendance":46.666666666666664
+      },
+      {
+         "name":"Shri Basawaraj Patil",
+         "state":"Karnataka",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Dilipbhai Pandya",
+         "state":"Gujrat",
+         "attendance":100
+      },
+      {
+         "name":"Dr. Bhushan Lal Jangde",
+         "state":"Chhatisgarh",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Dr. Subramanian Swamy",
+         "state":"Nominated",
+         "attendance":100
+      },
+      {
+         "name":"Shri Ajay Sancheti",
+         "state":"Maharashtra",
+         "attendance":100
+      },
+      {
+         "name":"*Shri Rajeev Chandrasekhar",
+         "state":"Karnataka",
+         "attendance":26.666666666666668
+      },
+      {
+         "name":"Shri Parimal Nathwani",
+         "state":"Jharkhand",
+         "attendance":40
+      },
+      {
+         "name":"Shri Narayan Lal Panchariya",
+         "state":"Rajasthan",
+         "attendance":100
+      },
+      {
+         "name":"Shri Rangasayee Ramakrishna",
+         "state":"Karnataka",
+         "attendance":100
+      },
+      {
+         "name":"Shri Shankarbhai N. Vegad",
+         "state":"Gujrat",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Navjot Singh Sidhu",
+         "state":"Nominated",
+         "attendance":40
+      },
+      {
+         "name":"Shri Anil Desai",
+         "state":"Maharashtra",
+         "attendance":100
+      },
+      {
+         "name":"Smt. Gundu Sudharani",
+         "state":"Telangana",
+         "attendance":60
+      },
+      {
+         "name":"Smt. Thota Seetharama Lakshmi",
+         "state":"Andhra Pradesh",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Garikapati Mohan Rao",
+         "state":"Telangana",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri R. K. Sinha",
+         "state":"Bihar",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Shamsher Singh Manhas",
+         "state":"Jammu & Kashmir",
+         "attendance":100
+      },
+      {
+         "name":"Shri Amar Shankar Sable",
+         "state":"Maharashtra",
+         "attendance":100
+      },
+      {
+         "name":"Shri Nazir Ahmed Laway",
+         "state":"Jammu & Kashmir",
+         "attendance":53.333333333333336
+      },
+      {
+         "name":"Mir Mohammad Fayaz",
+         "state":"Jammu & Kashmir",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Sanjay Dattatraya Kakade",
+         "state":"Maharashtra",
+         "attendance":53.333333333333336
+      },
+      {
+         "name":"Shri Hishey Lachungpa",
+         "state":"Sikkim",
+         "attendance":20
+      },
+      {
+         "name":"Shri A. Navaneethakrishnan",
+         "state":"Tamilnadu",
+         "attendance":13.333333333333334
+      },
+      {
+         "name":"Shri Dilip Kumar Tirkey",
+         "state":"Odisha",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Derek O Brien",
+         "state":"West Bangal",
+         "attendance":26.666666666666668
+      },
+      {
+         "name":"Shri Sharad Pawar",
+         "state":"Maharashtra",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Sukhendu Sekhar Roy",
+         "state":"West Bangal",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri C.M. Ramesh",
+         "state":"Telangana",
+         "attendance":60
+      },
+      {
+         "name":"Shri Praful Patel",
+         "state":"Maharashtra",
+         "attendance":40
+      },
+      {
+         "name":"Shri Devender Goud T.",
+         "state":"Andhra Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Baishnab Parida",
+         "state":"Odisha",
+         "attendance":73.33333333333333
+      },
+      {
+         "name":"Shri A.U. Singh Deo",
+         "state":"Odisha",
+         "attendance":100
+      },
+      {
+         "name":"Shri Tiruchi Siva",
+         "state":"Tamilnadu",
+         "attendance":6.666666666666667
+      },
+      {
+         "name":"*Shri Mukul Roy",
+         "state":"West Bangal",
+         "attendance":20
+      },
+      {
+         "name":"Dr. Kanwar Deep Singh",
+         "state":"West Bangal",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Dr. Mahendra Prasad",
+         "state":"Bihar",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Dr. K.P. Ramalingam",
+         "state":"Tamilnadu",
+         "attendance":100
+      },
+      {
+         "name":"Smt. Sarojini Hembram",
+         "state":"Odisha",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"*Shri Anubhav Mohanty",
+         "state":"Odisha",
+         "attendance":20
+      },
+      {
+         "name":"Shri K.C. Tyagi",
+         "state":"Bihar",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri D.P. Tripathi",
+         "state":"Maharashtra",
+         "attendance":100
+      },
+      {
+         "name":"Shri Md. Nadimul Haque",
+         "state":"West Bangal",
+         "attendance":80
+      },
+      {
+         "name":"Ms. Anu Aga",
+         "state":"Nominated",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Smt. M.C. Mary Kom",
+         "state":"Nominated",
+         "attendance":6.666666666666667
+      },
+      {
+         "name":"Shri K. Parasaran",
+         "state":"Nominated",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri K.T.S. Tulsi",
+         "state":"Nominated",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Sachin Ramesh Tendulkar",
+         "state":"Nominated",
+         "attendance":13.333333333333334
+      },
+      {
+         "name":"Shri D. Bandyopadhyay",
+         "state":"West Bangal",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Bhupinder Singh",
+         "state":"Odisha",
+         "attendance":100
+      },
+      {
+         "name":"Shri Narendra Kumar Swain",
+         "state":"Odisha",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Majeed Memon",
+         "state":"Maharashtra",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Suresh Gopi",
+         "state":"Nominated",
+         "attendance":13.333333333333334
+      },
+      {
+         "name":"*Dr. Narendra Jadhav",
+         "state":"Nominated",
+         "attendance":73.33333333333333
+      },
+      {
+         "name":"Shri Swapan Dasgupta",
+         "state":"Nominated",
+         "attendance":73.33333333333333
+      },
+      {
+         "name":"Shri Ahamed Hassan",
+         "state":"West Bangal",
+         "attendance":53.333333333333336
+      },
+      {
+         "name":"Prof. Jogen Chowdhury",
+         "state":"West Bangal",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri A.V. Swamy",
+         "state":"Odisha",
+         "attendance":100
+      },
+      {
+         "name":"Shri Ishwarlal Shankarlal Jain",
+         "state":"Maharashtra",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri S. Thangavelu",
+         "state":"Tamilnadu",
+         "attendance":13.333333333333334
+      },
+      {
+         "name":"Ms. Dola Sen",
+         "state":"West Bangal",
+         "attendance":13.333333333333334
+      },
+      {
+         "name":"Shri Vivek Gupta",
+         "state":"West Bangal",
+         "attendance":60
+      },
+      {
+         "name":"Shri Sitaram Yechury",
+         "state":"West Bangal",
+         "attendance":73.33333333333333
+      },
+      {
+         "name":"Prof. Ram Gopal Yadav",
+         "state":"Uttar Pradesh",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Sharad Yadav",
+         "state":"Bihar",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Km. Mayawati",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Naresh Agrawal",
+         "state":"Uttar Pradesh",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Tapan Kumar Sen",
+         "state":"West Bangal",
+         "attendance":80
+      },
+      {
+         "name":"Shri Ali Anwar Ansari",
+         "state":"Bihar",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Satish Chandra Misra",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri T.K. Rangarajan",
+         "state":"Tamilnadu",
+         "attendance":13.333333333333334
+      },
+      {
+         "name":"Shri Ambeth Rajan",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Dr. Anil Kumar Sahani",
+         "state":"Bihar",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Veer Singh",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Smt. Jaya Bachchan",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Kiranmay Nanda",
+         "state":"Uttar Pradesh",
+         "attendance":53.333333333333336
+      },
+      {
+         "name":"Smt. Kanak Lata Singh",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Javed Ali Khan",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Smt. Jharna Das Baidya",
+         "state":"Tripura",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Bashistha Narain Singh",
+         "state":"Bihar",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri D. Raja",
+         "state":"Tamilnadu",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Prem Chand Gupta",
+         "state":"Jharkhand",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Ram Nath Thakur",
+         "state":"Bihar",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Ram Chandra Prasad Singh",
+         "state":"Bihar",
+         "attendance":46.666666666666664
+      },
+      {
+         "name":"Shri C.P. Narayanan",
+         "state":"Karnataka",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Vishambhar Prasad Nishad",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Darshan Singh Yadav",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Dr. Tazeen Fatma",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Munquad Ali",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Chaudhary Munvvar Saleem",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Pyarimohan Mohapatra",
+         "state":"Odisha",
+         "attendance":53.333333333333336
+      },
+      {
+         "name":"*Shri M.P. Veerendra Kumar",
+         "state":"Karnataka",
+         "attendance":6.666666666666667
+      },
+      {
+         "name":"Shri Pavan Kumar Varma",
+         "state":"Bihar",
+         "attendance":100
+      },
+      {
+         "name":"Smt. Kahkashan Perween",
+         "state":"Bihar",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Harivansh",
+         "state":"Bihar",
+         "attendance":73.33333333333333
+      },
+      {
+         "name":"Shri Ritabrata Banerjee",
+         "state":"West Bangal",
+         "attendance":40
+      },
+      {
+         "name":"Shri Alok Tiwari",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Dr. Chandrapal Singh Yadav",
+         "state":"Uttar Pradesh",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Arvind Kumar Singh",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Ravi Prakash Verma",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Neeraj Shekhar",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Rajaram",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Smt. Vandana Chavan",
+         "state":"Maharashtra",
+         "attendance":80
+      },
+      {
+         "name":"Shri K.K. Ragesh",
+         "state":"Karnataka",
+         "attendance":13.333333333333334
+      },
+      {
+         "name":"Shri K. Somaprasad",
+         "state":"Karnataka",
+         "attendance":33.33333333333333
+      },
+      {
+         "name":"Shri Gulam Rasool Balyawi",
+         "state":"Bihar",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Ram Kumar Kashyap",
+         "state":"Haryana",
+         "attendance":100
+      },
+      {
+         "name":"Shri D. Kupendra Reddy",
+         "state":"Karnataka",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Jugul Kishore",
+         "state":"Uttar Pradesh",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri K.G. Kenye",
+         "state":"Nagaland",
+         "attendance":33.33333333333333
+      },
+      {
+         "name":"Shri Salim Ansari",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Rajpal Singh Saini",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Anand Sharma",
+         "state":"Himanchal Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Shri A.K. Antony",
+         "state":"Karnataka",
+         "attendance":40
+      },
+      {
+         "name":"Dr. Karan Singh",
+         "state":"Delhi",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Dr. Manmohan Singh",
+         "state":"Assam",
+         "attendance":100
+      },
+      {
+         "name":"Shri Ahmed Patel",
+         "state":"Gujrat",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Digvijaya Singh",
+         "state":"Madhya Pradesh",
+         "attendance":73.33333333333333
+      },
+      {
+         "name":"Shri K. Rahman Khan",
+         "state":"Karnataka",
+         "attendance":73.33333333333333
+      },
+      {
+         "name":"Shri Janardan Dwivedi",
+         "state":"Delhi",
+         "attendance":100
+      },
+      {
+         "name":"Shri Motilal Vora",
+         "state":"Chhatisgarh",
+         "attendance":100
+      },
+      {
+         "name":"Dr. T. Subbarami Reddy",
+         "state":"Andhra Pradesh",
+         "attendance":80
+      },
+      {
+         "name":"Shri Oscar Fernandes",
+         "state":"Karnataka",
+         "attendance":60
+      },
+      {
+         "name":"Shri Raj Babbar",
+         "state":"Uttara Khand",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Jairam Ramesh",
+         "state":"Karnataka",
+         "attendance":100
+      },
+      {
+         "name":"Kumari Selja",
+         "state":"Haryana",
+         "attendance":100
+      },
+      {
+         "name":"Shri Rajeev Shukla",
+         "state":"Maharashtra",
+         "attendance":80
+      },
+      {
+         "name":"Shri Bhubaneswar Kalita",
+         "state":"Assam",
+         "attendance":100
+      },
+      {
+         "name":"Shri Narendra Budania",
+         "state":"Rajasthan",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri P.L. Punia",
+         "state":"Uttar Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Dr. K. Chiranjeevi",
+         "state":"Andhra Pradesh",
+         "attendance":6.666666666666667
+      },
+      {
+         "name":"Shri Madhusudan Mistry",
+         "state":"Gujrat",
+         "attendance":80
+      },
+      {
+         "name":"Shri Shamsher Singh Dullo",
+         "state":"Punjab",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Smt. Ranee Narah",
+         "state":"Assam",
+         "attendance":100
+      },
+      {
+         "name":"Dr. K. Keshava Rao",
+         "state":"Andhra Pradesh",
+         "attendance":80
+      },
+      {
+         "name":"Shri Biswajit Daimary",
+         "state":"Assam",
+         "attendance":33.33333333333333
+      },
+      {
+         "name":"Shri V. Hanumantha Rao",
+         "state":"Telangana",
+         "attendance":100
+      },
+      {
+         "name":"Shri Jesudasu Seelam",
+         "state":"Andhra Pradesh",
+         "attendance":73.33333333333333
+      },
+      {
+         "name":"Shri Shadi Lal Batra",
+         "state":"Haryana",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Parvez Hashmi",
+         "state":"Delhi",
+         "attendance":100
+      },
+      {
+         "name":"Dr. K.V.P. Ramachandra Rao",
+         "state":"Telangana",
+         "attendance":100
+      },
+      {
+         "name":"Shri Mohd. Ali Khan",
+         "state":"Andhra Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Dr. Sanjay Sinh",
+         "state":"Assam",
+         "attendance":100
+      },
+      {
+         "name":"Shri Ram Jethmalani",
+         "state":"Bihar",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Sanjiv Kumar",
+         "state":"Jharkhand",
+         "attendance":80
+      },
+      {
+         "name":"Smt. Viplove Thakur",
+         "state":"Himanchal Pradesh",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Ananda Bhaskar Rapolu",
+         "state":"Telangana",
+         "attendance":100
+      },
+      {
+         "name":"Shri P. Bhattacharya",
+         "state":"West Bangal",
+         "attendance":53.333333333333336
+      },
+      {
+         "name":"Shri Praveen Rashtrapal",
+         "state":"Gujrat",
+         "attendance":80
+      },
+      {
+         "name":"Shri Shantaram Naik",
+         "state":"GOA",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Ranjib Biswal",
+         "state":"Odisha",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Husain Dalwai",
+         "state":"Maharashtra",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Joy Abraham",
+         "state":"Karnataka",
+         "attendance":6.666666666666667
+      },
+      {
+         "name":"Shri Abdul Wahab",
+         "state":"Karnataka",
+         "attendance":33.33333333333333
+      },
+      {
+         "name":"Shri Ronald Sapa Tlau",
+         "state":"Mizoram",
+         "attendance":100
+      },
+      {
+         "name":"Shri Palvai Govardhan Reddy",
+         "state":"Telangana",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Dhiraj Prasad Sahu",
+         "state":"Jharkhand",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Avinash Pande",
+         "state":"Maharashtra",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Santiuse Kujur",
+         "state":"Assam",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Haji Abdul Salam",
+         "state":"Manipur",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Prof. M.V. Rajeev Gowda",
+         "state":"Karnataka",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Ghulam Nabi Azad",
+         "state":"Jammu & Kashmir",
+         "attendance":null
+      },
+      {
+         "name":"Prof. P.J. Kurien",
+         "state":"Karnataka",
+         "attendance":null
+      },
+      {
+         "name":"Shri Satyavrat Chaturvedi",
+         "state":"Madhya Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Smt. Ambika Soni",
+         "state":"Punjab",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Smt. Mohsina Kidwai",
+         "state":"Chhatisgarh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Pramod Tiwari",
+         "state":"Uttar Pradesh",
+         "attendance":100
+      },
+      {
+         "name":"Shri Vayalar Ravi",
+         "state":"Karnataka",
+         "attendance":60
+      },
+      {
+         "name":"Dr. Abhishek Manu Singhvi",
+         "state":"Rajasthan",
+         "attendance":26.666666666666668
+      },
+      {
+         "name":"Smt. Renuka Chowdhury",
+         "state":"Andhra Pradesh",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Shri Satish Sharma",
+         "state":"Uttar Pradesh",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri Mukut Mithi",
+         "state":"Arunachal Pradesh",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Shri B.K. Hariprasad",
+         "state":"Karnataka",
+         "attendance":60
+      },
+      {
+         "name":"Shri Partap Singh Bajwa",
+         "state":"Punjab",
+         "attendance":80
+      },
+      {
+         "name":"Dr. E.M. Sudarsana Natchiappan",
+         "state":"Tamilnadu",
+         "attendance":80
+      },
+      {
+         "name":"Shri Vijay Jawaharlal Darda",
+         "state":"Maharashtra",
+         "attendance":86.66666666666667
+      },
+      {
+         "name":"Smt. Rajani Patil",
+         "state":"Maharashtra",
+         "attendance":93.33333333333333
+      },
+      {
+         "name":"Smt. Wansuk Syiem",
+         "state":"Meghalaya",
+         "attendance":80
+      },
+      {
+         "name":"Dr. Vijaylaxmi Sadho",
+         "state":"Madhya Pradesh",
+         "attendance":66.66666666666666
+      },
+      {
+         "name":"Shri Ripun Bora",
+         "state":"Assam",
+         "attendance":100
+      },
+      {
+         "name":"Shri Ashk Ali Tak",
+         "state":"Rajasthan",
+         "attendance":100
+      },
+      {
+         "name":"Dr. Pradeep Kumar Balmuchu",
+         "state":"Jharkhand",
+         "attendance":93.33333333333333
+      }
+   ]
+}

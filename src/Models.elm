@@ -2,19 +2,20 @@ module Models exposing (..)
 
 import RemoteData exposing (WebData)
 
+
 type alias Model =
-    { leaders : List Leader
+    { leaders : WebData (List Leader)
     }
 
 
 initialModel : Model
 initialModel =
-    { leaders = [ Leader 12 "name" "state" ]
+    { leaders = RemoteData.Loading
     }
 
 
 type alias Leader =
-    { attendance : Int
+    { attendance : Float
     , name : String
     , state : String
     }

@@ -5,11 +5,12 @@ import Msgs exposing (Msg)
 import Models exposing (Model, initialModel)
 import Update exposing (update)
 import Views.Dashboard exposing (view)
+import Commands exposing (fetchLeaders)
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( initialModel, Cmd.none )
+    ( initialModel, fetchLeaders )
 
 
 subscriptions : Model -> Sub Msg

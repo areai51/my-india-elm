@@ -2,9 +2,9 @@ module Commands exposing (..)
 
 import Http
 import Json.Decode as Decode
-import Json.Decode.Pipeline exposing (decode, required)
+import Json.Decode.Pipeline exposing (decode, required, optional, hardcoded)
 import Msgs exposing (Msg)
-import Models exposing (Leader)
+import Models exposing (Leader, Model)
 import RemoteData
 
 
@@ -17,7 +17,8 @@ fetchLeaders =
 
 fetchLeadersUrl : String
 fetchLeadersUrl =
-    "https://data.gov.in/node/85987/datastore/export/json"
+      "http://localhost:4000/leaders"
+    --"https://data.gov.in/node/85987/datastore/export/json"
 
 
 leadersDecoder : Decode.Decoder (List Leader)
@@ -28,6 +29,6 @@ leadersDecoder =
 leaderDecoder : Decode.Decoder Leader
 leaderDecoder =
     decode Leader
-        |> required "id" Decode.string
+        |> optional "attendance" Decode.float 0
         |> required "name" Decode.string
-        |> required "level" Decode.int
+        |> required "state" Decode.string
