@@ -17,18 +17,37 @@ fetchLeaders =
 
 fetchLeadersUrl : String
 fetchLeadersUrl =
-      "http://localhost:4000/leaders"
-    --"https://data.gov.in/node/85987/datastore/export/json"
+    --"http://localhost:4000/leaders"
+    "https://data.gov.in/node/85987/datastore/export/json"
 
 
 leadersDecoder : Decode.Decoder (List Leader)
 leadersDecoder =
-    Decode.list leaderDecoder
+    --Decode.list leaderDecoder
+    Decode.at [ "data" ] (Decode.list leaderDecoder)
 
 
 leaderDecoder : Decode.Decoder Leader
 leaderDecoder =
-    decode Leader
+    {-decode Leader
         |> optional "attendance" Decode.float 0
         |> required "name" Decode.string
-        |> required "state" Decode.string
+        |> required "state" Decode.string-}
+    let
+        sessionsAttendedDecoder =
+            Decode.index 7 Decode.float
+                |> Decode.andThen (\total -> attendanceDecoder
+                |> Decode.map (\attended -> (attended / total) * 100))
+    in
+        Decode.map3 Leader
+            sessionsAttendedDecoder
+            (Decode.index 2 Decode.string)
+            (Decode.index 5 Decode.string)
+
+attendanceDecoder : Decode.Decoder Float
+attendanceDecoder =
+    (Decode.oneOf
+        [ Decode.index 8 Decode.float
+        , Decode.succeed 0
+        ]
+    )

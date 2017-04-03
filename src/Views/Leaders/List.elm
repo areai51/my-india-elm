@@ -1,7 +1,7 @@
 module Views.Leaders.List exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, style)
 import Msgs exposing (Msg)
 import Models exposing (Leader)
 import RemoteData exposing (WebData)
@@ -38,8 +38,8 @@ maybeList response =
 
 list : List Leader -> Html Msg
 list leaders =
-    div [ class "p2" ]
-        [ table []
+    div [ class "card", style [("width", "50%"), ("height", "100%")] ]
+        [ div [class "card-header"] [text "Lok Sabha 15 - Attendence"], table []
             [ thead []
                 [ tr []
                     [ th [] [ text "Attendance" ]

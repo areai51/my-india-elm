@@ -14876,22 +14876,34 @@ var _user$project$Msgs$OnFetchLeaders = function (a) {
 	return {ctor: 'OnFetchLeaders', _0: a};
 };
 
-var _user$project$Commands$leaderDecoder = A3(
-	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-	'state',
-	_elm_lang$core$Json_Decode$string,
-	A3(
-		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-		'name',
-		_elm_lang$core$Json_Decode$string,
-		A4(
-			_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$optional,
-			'attendance',
-			_elm_lang$core$Json_Decode$int,
-			0,
-			_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Leader))));
-var _user$project$Commands$leadersDecoder = _elm_lang$core$Json_Decode$list(_user$project$Commands$leaderDecoder);
-var _user$project$Commands$fetchLeadersUrl = 'http://localhost:4000/leaders';
+var _user$project$Commands$leaderDecoder = function () {
+	var sessionsAttendedDecoder = A2(
+		_elm_lang$core$Json_Decode$andThen,
+		function (total) {
+			return A2(
+				_elm_lang$core$Json_Decode$map,
+				function (attended) {
+					return (attended / total) * 100;
+				},
+				A2(_elm_lang$core$Json_Decode$index, 8, _elm_lang$core$Json_Decode$float));
+		},
+		A2(_elm_lang$core$Json_Decode$index, 7, _elm_lang$core$Json_Decode$float));
+	return A4(
+		_elm_lang$core$Json_Decode$map3,
+		_user$project$Models$Leader,
+		sessionsAttendedDecoder,
+		A2(_elm_lang$core$Json_Decode$index, 2, _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$index, 5, _elm_lang$core$Json_Decode$string));
+}();
+var _user$project$Commands$leadersDecoder = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'data',
+		_1: {ctor: '[]'}
+	},
+	_elm_lang$core$Json_Decode$list(_user$project$Commands$leaderDecoder));
+var _user$project$Commands$fetchLeadersUrl = 'https://data.gov.in/node/85987/datastore/export/json';
 var _user$project$Commands$fetchLeaders = A2(
 	_elm_lang$core$Platform_Cmd$map,
 	_user$project$Msgs$OnFetchLeaders,
@@ -14955,42 +14967,59 @@ var _user$project$Views_Leaders_List$list = function (leaders) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('p2'),
-			_1: {ctor: '[]'}
+			_0: _elm_lang$html$Html_Attributes$class('card'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$style(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'width', _1: '50%'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}
 		},
 		{
 			ctor: '::',
 			_0: A2(
-				_elm_lang$html$Html$table,
-				{ctor: '[]'},
+				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$thead,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$tr,
-								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$th,
-										{ctor: '[]'},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Attendance'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
+					_0: _elm_lang$html$Html_Attributes$class('card-header'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Lok Sabha 15 - Attendence'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$table,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$thead,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$tr,
+									{ctor: '[]'},
+									{
 										ctor: '::',
 										_0: A2(
 											_elm_lang$html$Html$th,
 											{ctor: '[]'},
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html$text('Name'),
+												_0: _elm_lang$html$Html$text('Attendance'),
 												_1: {ctor: '[]'}
 											}),
 										_1: {
@@ -15000,25 +15029,36 @@ var _user$project$Views_Leaders_List$list = function (leaders) {
 												{ctor: '[]'},
 												{
 													ctor: '::',
-													_0: _elm_lang$html$Html$text('State'),
+													_0: _elm_lang$html$Html$text('Name'),
 													_1: {ctor: '[]'}
 												}),
-											_1: {ctor: '[]'}
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$th,
+													{ctor: '[]'},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('State'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											}
 										}
-									}
-								}),
+									}),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$tbody,
+								{ctor: '[]'},
+								A2(_elm_lang$core$List$map, _user$project$Views_Leaders_List$leaderRow, leaders)),
 							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$tbody,
-							{ctor: '[]'},
-							A2(_elm_lang$core$List$map, _user$project$Views_Leaders_List$leaderRow, leaders)),
-						_1: {ctor: '[]'}
-					}
-				}),
-			_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}
 		});
 };
 var _user$project$Views_Leaders_List$maybeList = function (response) {
@@ -15036,26 +15076,11 @@ var _user$project$Views_Leaders_List$maybeList = function (response) {
 	}
 };
 var _user$project$Views_Leaders_List$nav = A2(
-	_elm_lang$html$Html$div,
+	_elm_lang$html$Html$h1,
+	{ctor: '[]'},
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black'),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$div,
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class('left p2'),
-				_1: {ctor: '[]'}
-			},
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('Leaders'),
-				_1: {ctor: '[]'}
-			}),
+		_0: _elm_lang$html$Html$text('Our Leaders'),
 		_1: {ctor: '[]'}
 	});
 var _user$project$Views_Leaders_List$view = function (response) {
