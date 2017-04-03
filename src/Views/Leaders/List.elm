@@ -1,7 +1,7 @@
 module Views.Leaders.List exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, style)
+import Html.Attributes exposing (class, style, colspan, scope, attribute)
 import Msgs exposing (Msg)
 import Models exposing (Leader)
 import RemoteData exposing (WebData)
@@ -38,24 +38,35 @@ maybeList response =
 
 list : List Leader -> Html Msg
 list leaders =
-    div [ class "card", style [("width", "50%"), ("height", "100%")] ]
-        [ div [class "card-header"] [text "Lok Sabha 15 - Attendence"], table []
-            [ thead []
-                [ tr []
-                    [ th [] [ text "Attendance" ]
-                    , th [] [ text "Name" ]
-                    , th [] [ text "State" ]
+    table [ class "table", style [("width", "50%"), ("height", "100%")] ]
+        [ thead [class "thead-inverse"] [ tr []
+                    [ th [] [ text "#" ] ,
+                      th [ colspan 2 ] [ text "Lok Sabha 15 - Attendence" ]
                     ]
-                ]
-            , tbody [] (List.map leaderRow leaders)
-            ]
+                ], 
+          tbody [] (List.indexedMap leaderRow leaders)
         ]
 
 
-leaderRow : Leader -> Html Msg
-leaderRow leader =
+leaderRow : Int -> Leader -> Html Msg
+leaderRow index leader =
     tr []
-        [ td [] [ text (toString leader.attendance) ]
-        , td [] [ text leader.name ]
-        , td [] [ text leader.state ]
+        [
+          th [ scope "row" ] [ text (toString (index + 1)) ]
+        , td [] [ 
+              p [ class "font-weight-bold" ] [ text leader.name ],
+              p [ class "font-italic" ] [ text leader.state ]
+            ]
+        , td [] [
+              div [ class "progress", style [("width", "200px")] ] [ 
+                  div [ 
+                      class "progress-bar",
+                      style [ ("width", (toString (round (leader.attendance))) ++ "%") ],
+                      attribute "role" "progressbar",
+                      attribute "aria-valuenow" (toString (round (leader.attendance))),
+                      attribute "aria-valuemin" "0",
+                      attribute "aria-valuemax" "100"
+                      ] [ text ((toString (round (leader.attendance))) ++ "%") ]
+               ]
+            ]
         ]

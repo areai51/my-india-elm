@@ -17,22 +17,16 @@ fetchLeaders =
 
 fetchLeadersUrl : String
 fetchLeadersUrl =
-    --"http://localhost:4000/leaders"
     "https://data.gov.in/node/85987/datastore/export/json"
 
 
 leadersDecoder : Decode.Decoder (List Leader)
 leadersDecoder =
-    --Decode.list leaderDecoder
     Decode.at [ "data" ] (Decode.list leaderDecoder)
 
 
 leaderDecoder : Decode.Decoder Leader
 leaderDecoder =
-    {-decode Leader
-        |> optional "attendance" Decode.float 0
-        |> required "name" Decode.string
-        |> required "state" Decode.string-}
     let
         sessionsAttendedDecoder =
             Decode.index 7 Decode.float
