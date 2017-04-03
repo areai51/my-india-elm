@@ -30,7 +30,7 @@ maybeList response =
             text "Loading..."
 
         RemoteData.Success leaders ->
-            list leaders
+            list (List.reverse (List.sortBy .attendance leaders))
 
         RemoteData.Failure error ->
             text (toString error)
