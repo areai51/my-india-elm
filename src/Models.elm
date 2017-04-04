@@ -4,13 +4,17 @@ import RemoteData exposing (WebData)
 
 
 type alias Model =
-    { leaders : WebData (List Leader)
+    { lsLeaders : WebData (List Leader)
+    , rsLeaders : WebData (List Leader)
+    , route : Route
     }
 
 
-initialModel : Model
-initialModel =
-    { leaders = RemoteData.Loading
+initialModel : Route -> Model
+initialModel route =
+    { lsLeaders = RemoteData.Loading
+    , rsLeaders = RemoteData.Loading
+    , route = route
     }
 
 
@@ -19,3 +23,11 @@ type alias Leader =
     , name : String
     , state : String
     }
+
+
+type Route
+    = LeadersRoute
+    | StateCrimesRoute
+    | CityAccidentsRoutes
+    | RiversRoute
+    | NotFoundRoute

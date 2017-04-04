@@ -4,7 +4,11 @@ import Html exposing (Html, div, text, nav, img, a, button)
 import Html.Attributes exposing (class, href, src, height, width, style)
 import Msgs exposing (Msg)
 import Models exposing (Model)
-import Views.Leaders.List
+import Views.Leaders
+import Views.Accidents
+import Views.Crimes
+import Views.Rivers
+import Routing exposing (leadersPath, crimesPath, accidentsPath, riversPath)
 
 
 view : Model -> Html Msg
@@ -18,10 +22,10 @@ view model =
                 ] 
             ],
         nav [ class "nav flex-column" , style [ ("width", "15%"), ("float", "left"), ("height", "85vh") ] ] [
-            a [ class "nav-link", href "#" ] [ text "Our Leaders" ],
-            a [ class "nav-link", href "#" ] [ text "Crime in States" ],
-            a [ class "nav-link", href "#" ] [ text "Accidents in Cities" ],
-            a [ class "nav-link", href "#" ] [ text "Our Rivers" ]
+            a [ class "nav-link", href leadersPath ] [ text "Our Leaders" ],
+            a [ class "nav-link", href crimesPath ] [ text "Crime in States" ],
+            a [ class "nav-link", href accidentsPath ] [ text "Accidents in Cities" ],
+            a [ class "nav-link", href riversPath ] [ text "Our Rivers" ]
         ],
         div [ class "container bg-faded" , style [ ("width", "85%"), ("float", "left"), ("height", "85vh") ] ] [
             page model
@@ -29,7 +33,27 @@ view model =
     ]
 
 
-
 page : Model -> Html Msg
 page model =
-    Views.Leaders.List.view model.leaders
+    case model.route of
+        Models.LeadersRoute ->
+            Views.Leaders.view model.lsLeaders
+
+        Models.StateCrimesRoute ->
+            Views.Crimes.view
+
+        Models.CityAccidentsRoutes ->
+            Views.Accidents.view
+
+        Models.RiversRoute ->
+            Views.Rivers.view
+
+        Models.NotFoundRoute ->
+            notFoundView
+
+
+notFoundView : Html msg
+notFoundView =
+    div []
+        [ text "Not found"
+        ]

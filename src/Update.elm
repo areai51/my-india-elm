@@ -2,10 +2,21 @@ module Update exposing (..)
 
 import Msgs exposing (Msg(..))
 import Models exposing (Model)
+import Routing exposing (parseLocation)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        Msgs.OnFetchLeaders response ->
-            ( { model | leaders = response }, Cmd.none )
+        Msgs.OnFetchLSLeaders response ->
+            ( { model | lsLeaders = response }, Cmd.none )
+
+        Msgs.OnFetchRSLeaders response ->
+            ( { model | rsLeaders = response }, Cmd.none )
+
+        Msgs.OnLocationChange location ->
+            let
+                newRoute =
+                    parseLocation location
+            in
+                ( { model | route = newRoute }, Cmd.none )

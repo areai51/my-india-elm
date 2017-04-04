@@ -1,4 +1,4 @@
-module Views.Leaders.List exposing (..)
+module Views.Leaders exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (class, style, colspan, scope, attribute)
@@ -9,13 +9,13 @@ import RemoteData exposing (WebData)
 
 view : WebData (List Leader) -> Html Msg
 view response =
-    div []
+    div [ style [("height", "100%"), ("overflow", "hidden"), ("overflow-y", "auto")]]
         [ nav
         , maybeList response
         ]
 
 
-nav : Html Msg
+nav : Html msg
 nav =
     h1 [ ] [ text "Our Leaders" ]
 

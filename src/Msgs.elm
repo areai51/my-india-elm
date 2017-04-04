@@ -1,8 +1,11 @@
 module Msgs exposing (..)
 
 import Models exposing (Leader)
+import Navigation exposing (Location)
 import RemoteData exposing (WebData)
 
 
 type Msg
-    = OnFetchLeaders (WebData (List Leader))
+    = OnFetchLSLeaders (WebData (List Leader))
+    | OnFetchRSLeaders (WebData (List Leader))
+    | OnLocationChange Location

@@ -10,18 +10,23 @@ import RemoteData
 
 fetchLeaders : Cmd Msg
 fetchLeaders =
-    Http.get fetchLeadersUrl leadersDecoder
+    Http.get fetchLSLeadersUrl lsLeadersDecoder
         |> RemoteData.sendRequest
-        |> Cmd.map Msgs.OnFetchLeaders
+        |> Cmd.map Msgs.OnFetchLSLeaders
 
 
-fetchLeadersUrl : String
-fetchLeadersUrl =
+fetchLSLeadersUrl : String
+fetchLSLeadersUrl =
     "https://data.gov.in/node/85987/datastore/export/json"
 
 
-leadersDecoder : Decode.Decoder (List Leader)
-leadersDecoder =
+fetchRSLeadersUrl : String
+fetchRSLeadersUrl =
+    "https://data.gov.in/node/982241/datastore/export/json"
+
+
+lsLeadersDecoder : Decode.Decoder (List Leader)
+lsLeadersDecoder =
     Decode.at [ "data" ] (Decode.list leaderDecoder)
 
 
