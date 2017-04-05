@@ -1,7 +1,7 @@
 module Update exposing (..)
 
 import Msgs exposing (Msg(..))
-import Models exposing (Model)
+import Models exposing (Model, Route(..))
 import Routing exposing (parseLocation)
 import Commands exposing (fetchRivers)
 
@@ -23,6 +23,23 @@ update msg model =
                 newRoute =
                     parseLocation location
             in
-                ( { model | route = newRoute }, fetchRivers )
+                ( { model | route = newRoute }, loadRouteData newRoute )
 
 
+loadRouteData : Route -> (Cmd Msg)
+loadRouteData route =
+    case route of
+        Models.LeadersRoute ->
+            Cmd.none
+
+        Models.StateCrimesRoute ->
+            Cmd.none
+
+        Models.CityAccidentsRoutes ->
+            Cmd.none
+        
+        Models.RiversRoute ->
+            fetchRivers
+
+        Models.NotFoundRoute ->
+            Cmd.none

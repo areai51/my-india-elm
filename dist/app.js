@@ -15986,16 +15986,31 @@ var _user$project$Routing$parseLocation = function (location) {
 	}
 };
 
+var _user$project$Update$loadRouteData = function (route) {
+	var _p0 = route;
+	switch (_p0.ctor) {
+		case 'LeadersRoute':
+			return _elm_lang$core$Platform_Cmd$none;
+		case 'StateCrimesRoute':
+			return _elm_lang$core$Platform_Cmd$none;
+		case 'CityAccidentsRoutes':
+			return _elm_lang$core$Platform_Cmd$none;
+		case 'RiversRoute':
+			return _user$project$Commands$fetchRivers;
+		default:
+			return _elm_lang$core$Platform_Cmd$none;
+	}
+};
 var _user$project$Update$update = F2(
 	function (msg, model) {
-		var _p0 = msg;
-		switch (_p0.ctor) {
+		var _p1 = msg;
+		switch (_p1.ctor) {
 			case 'OnFetchLSLeaders':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{lsLeaders: _p0._0}),
+						{lsLeaders: _p1._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'OnFetchRSLeaders':
@@ -16003,7 +16018,7 @@ var _user$project$Update$update = F2(
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{rsLeaders: _p0._0}),
+						{rsLeaders: _p1._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'OnFetchRivers':
@@ -16011,17 +16026,17 @@ var _user$project$Update$update = F2(
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
-						{rivers: _p0._0}),
+						{rivers: _p1._0}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			default:
-				var newRoute = _user$project$Routing$parseLocation(_p0._0);
+				var newRoute = _user$project$Routing$parseLocation(_p1._0);
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
 						model,
 						{route: newRoute}),
-					_1: _user$project$Commands$fetchRivers
+					_1: _user$project$Update$loadRouteData(newRoute)
 				};
 		}
 	});
