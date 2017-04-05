@@ -6,7 +6,7 @@ import Update exposing (update)
 import Navigation exposing (Location)
 import Routing
 import Views.Dashboard exposing (view)
-import Commands exposing (fetchLeaders)
+import Commands exposing (fetchLSLeaders, fetchRSLeaders)
 
 
 init : Location -> ( Model, Cmd Msg )
@@ -15,7 +15,7 @@ init location =
         currentRoute =
             Routing.parseLocation location
     in
-        ( initialModel currentRoute, fetchLeaders )
+        ( initialModel currentRoute, Cmd.batch [ fetchLSLeaders, fetchRSLeaders ] )
 
 
 subscriptions : Model -> Sub Msg

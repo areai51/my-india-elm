@@ -14476,121 +14476,6 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
-var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
-var _elm_lang$html$Html_Events$targetChecked = A2(
-	_elm_lang$core$Json_Decode$at,
-	{
-		ctor: '::',
-		_0: 'target',
-		_1: {
-			ctor: '::',
-			_0: 'checked',
-			_1: {ctor: '[]'}
-		}
-	},
-	_elm_lang$core$Json_Decode$bool);
-var _elm_lang$html$Html_Events$targetValue = A2(
-	_elm_lang$core$Json_Decode$at,
-	{
-		ctor: '::',
-		_0: 'target',
-		_1: {
-			ctor: '::',
-			_0: 'value',
-			_1: {ctor: '[]'}
-		}
-	},
-	_elm_lang$core$Json_Decode$string);
-var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
-var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
-var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
-var _elm_lang$html$Html_Events$onFocus = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'focus',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onBlur = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'blur',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
-	_elm_lang$html$Html_Events$defaultOptions,
-	{preventDefault: true});
-var _elm_lang$html$Html_Events$onSubmit = function (msg) {
-	return A3(
-		_elm_lang$html$Html_Events$onWithOptions,
-		'submit',
-		_elm_lang$html$Html_Events$onSubmitOptions,
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onCheck = function (tagger) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'change',
-		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
-};
-var _elm_lang$html$Html_Events$onInput = function (tagger) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'input',
-		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
-};
-var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseout',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseover',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseleave',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseenter',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseup',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mousedown',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'dblclick',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onClick = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'click',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$Options = F2(
-	function (a, b) {
-		return {stopPropagation: a, preventDefault: b};
-	});
-
 var _elm_lang$http$Native_Http = function() {
 
 
@@ -15880,7 +15765,17 @@ var _user$project$Commands$riverDecoder = A3(
 						'STATE',
 						_elm_lang$core$Json_Decode$string,
 						_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$River)))))));
-var _user$project$Commands$attendanceDecoder = _elm_lang$core$Json_Decode$oneOf(
+var _user$project$Commands$rsAttendanceDecoder = _elm_lang$core$Json_Decode$oneOf(
+	{
+		ctor: '::',
+		_0: A2(_elm_lang$core$Json_Decode$index, 8, _elm_lang$core$Json_Decode$string),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$core$Json_Decode$succeed('0'),
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$Commands$lsAttendanceDecoder = _elm_lang$core$Json_Decode$oneOf(
 	{
 		ctor: '::',
 		_0: A2(_elm_lang$core$Json_Decode$index, 8, _elm_lang$core$Json_Decode$float),
@@ -15890,7 +15785,32 @@ var _user$project$Commands$attendanceDecoder = _elm_lang$core$Json_Decode$oneOf(
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$Commands$leaderDecoder = function () {
+var _user$project$Commands$rsLeaderDecoder = function () {
+	var sessionsAttendedDecoder = A2(
+		_elm_lang$core$Json_Decode$andThen,
+		function (total) {
+			return A2(
+				_elm_lang$core$Json_Decode$map,
+				function (attended) {
+					return (A2(
+						_elm_lang$core$Result$withDefault,
+						0,
+						_elm_lang$core$String$toFloat(attended)) / A2(
+						_elm_lang$core$Result$withDefault,
+						0,
+						_elm_lang$core$String$toFloat(total))) * 100;
+				},
+				_user$project$Commands$rsAttendanceDecoder);
+		},
+		A2(_elm_lang$core$Json_Decode$index, 7, _elm_lang$core$Json_Decode$string));
+	return A4(
+		_elm_lang$core$Json_Decode$map3,
+		_user$project$Models$Leader,
+		sessionsAttendedDecoder,
+		A2(_elm_lang$core$Json_Decode$index, 2, _elm_lang$core$Json_Decode$string),
+		A2(_elm_lang$core$Json_Decode$index, 6, _elm_lang$core$Json_Decode$string));
+}();
+var _user$project$Commands$lsLeaderDecoder = function () {
 	var sessionsAttendedDecoder = A2(
 		_elm_lang$core$Json_Decode$andThen,
 		function (total) {
@@ -15899,7 +15819,7 @@ var _user$project$Commands$leaderDecoder = function () {
 				function (attended) {
 					return (attended / total) * 100;
 				},
-				_user$project$Commands$attendanceDecoder);
+				_user$project$Commands$lsAttendanceDecoder);
 		},
 		A2(_elm_lang$core$Json_Decode$index, 7, _elm_lang$core$Json_Decode$float));
 	return A4(
@@ -15917,6 +15837,14 @@ var _user$project$Commands$riversDecoder = A2(
 		_1: {ctor: '[]'}
 	},
 	_elm_lang$core$Json_Decode$list(_user$project$Commands$riverDecoder));
+var _user$project$Commands$rsLeadersDecoder = A2(
+	_elm_lang$core$Json_Decode$at,
+	{
+		ctor: '::',
+		_0: 'data',
+		_1: {ctor: '[]'}
+	},
+	_elm_lang$core$Json_Decode$list(_user$project$Commands$rsLeaderDecoder));
 var _user$project$Commands$lsLeadersDecoder = A2(
 	_elm_lang$core$Json_Decode$at,
 	{
@@ -15924,7 +15852,7 @@ var _user$project$Commands$lsLeadersDecoder = A2(
 		_0: 'data',
 		_1: {ctor: '[]'}
 	},
-	_elm_lang$core$Json_Decode$list(_user$project$Commands$leaderDecoder));
+	_elm_lang$core$Json_Decode$list(_user$project$Commands$lsLeaderDecoder));
 var _user$project$Commands$fetchRiversUrl = 'https://data.gov.in/api/datastore/resource.json?resource_id=2cfdb04a-e7e6-484b-8728-4cafbfe936e8&api-key=8064b14f9bd1e31d1e5a723a40b4fac1';
 var _user$project$Commands$fetchRSLeadersUrl = 'https://data.gov.in/node/982241/datastore/export/json';
 var _user$project$Commands$fetchLSLeadersUrl = 'https://data.gov.in/node/85987/datastore/export/json';
@@ -15933,7 +15861,12 @@ var _user$project$Commands$fetchRivers = A2(
 	_user$project$Msgs$OnFetchRivers,
 	_krisajenkins$remotedata$RemoteData$sendRequest(
 		A2(_elm_lang$http$Http$get, _user$project$Commands$fetchRiversUrl, _user$project$Commands$riversDecoder)));
-var _user$project$Commands$fetchLeaders = A2(
+var _user$project$Commands$fetchRSLeaders = A2(
+	_elm_lang$core$Platform_Cmd$map,
+	_user$project$Msgs$OnFetchRSLeaders,
+	_krisajenkins$remotedata$RemoteData$sendRequest(
+		A2(_elm_lang$http$Http$get, _user$project$Commands$fetchRSLeadersUrl, _user$project$Commands$rsLeadersDecoder)));
+var _user$project$Commands$fetchLSLeaders = A2(
 	_elm_lang$core$Platform_Cmd$map,
 	_user$project$Msgs$OnFetchLSLeaders,
 	_krisajenkins$remotedata$RemoteData$sendRequest(
@@ -16185,81 +16118,82 @@ var _user$project$Views_Leaders$leaderRow = F2(
 				}
 			});
 	});
-var _user$project$Views_Leaders$list = function (leaders) {
-	return A2(
-		_elm_lang$html$Html$table,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('table'),
-			_1: {
+var _user$project$Views_Leaders$list = F2(
+	function (leaders, title) {
+		return A2(
+			_elm_lang$html$Html$table,
+			{
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$style(
-					{
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'width', _1: '50%'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-							_1: {ctor: '[]'}
-						}
-					}),
-				_1: {ctor: '[]'}
-			}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$thead,
-				{
+				_0: _elm_lang$html$Html_Attributes$class('table'),
+				_1: {
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('thead-inverse'),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$tr,
-						{ctor: '[]'},
+					_0: _elm_lang$html$Html_Attributes$style(
 						{
 							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$th,
-								{ctor: '[]'},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('#'),
-									_1: {ctor: '[]'}
-								}),
+							_0: {ctor: '_Tuple2', _0: 'width', _1: '50%'},
 							_1: {
 								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$th,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$colspan(2),
-										_1: {ctor: '[]'}
-									},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('Lok Sabha 15 - Attendence'),
-										_1: {ctor: '[]'}
-									}),
+								_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
 								_1: {ctor: '[]'}
 							}
 						}),
 					_1: {ctor: '[]'}
-				}),
-			_1: {
+				}
+			},
+			{
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$tbody,
-					{ctor: '[]'},
-					A2(_elm_lang$core$List$indexedMap, _user$project$Views_Leaders$leaderRow, leaders)),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Views_Leaders$maybeList = function (response) {
+					_elm_lang$html$Html$thead,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('thead-inverse'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$tr,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$th,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('#'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$th,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$colspan(2),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text(title),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
+							}),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$tbody,
+						{ctor: '[]'},
+						A2(_elm_lang$core$List$indexedMap, _user$project$Views_Leaders$leaderRow, leaders)),
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _user$project$Views_Leaders$maybeRsList = function (response) {
 	var _p0 = response;
 	switch (_p0.ctor) {
 		case 'NotAsked':
@@ -16267,17 +16201,42 @@ var _user$project$Views_Leaders$maybeList = function (response) {
 		case 'Loading':
 			return _elm_lang$html$Html$text('Loading...');
 		case 'Success':
-			return _user$project$Views_Leaders$list(
+			return A2(
+				_user$project$Views_Leaders$list,
 				_elm_lang$core$List$reverse(
 					A2(
 						_elm_lang$core$List$sortBy,
 						function (_) {
 							return _.attendance;
 						},
-						_p0._0)));
+						_p0._0)),
+				'Rajya Sabha 15 - Attendence');
 		default:
 			return _elm_lang$html$Html$text(
 				_elm_lang$core$Basics$toString(_p0._0));
+	}
+};
+var _user$project$Views_Leaders$maybeLsList = function (response) {
+	var _p1 = response;
+	switch (_p1.ctor) {
+		case 'NotAsked':
+			return _elm_lang$html$Html$text('');
+		case 'Loading':
+			return _elm_lang$html$Html$text('Loading...');
+		case 'Success':
+			return A2(
+				_user$project$Views_Leaders$list,
+				_elm_lang$core$List$reverse(
+					A2(
+						_elm_lang$core$List$sortBy,
+						function (_) {
+							return _.attendance;
+						},
+						_p1._0)),
+				'Lok Sabha 15 - Attendence');
+		default:
+			return _elm_lang$html$Html$text(
+				_elm_lang$core$Basics$toString(_p1._0));
 	}
 };
 var _user$project$Views_Leaders$nav = A2(
@@ -16288,37 +16247,42 @@ var _user$project$Views_Leaders$nav = A2(
 		_0: _elm_lang$html$Html$text('Our Leaders'),
 		_1: {ctor: '[]'}
 	});
-var _user$project$Views_Leaders$view = function (response) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-					_1: {
+var _user$project$Views_Leaders$view = F2(
+	function (lsResponse, rsResponse) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$style(
+					{
 						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'overflow', _1: 'hidden'},
+						_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
 						_1: {
 							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'overflow-y', _1: 'auto'},
-							_1: {ctor: '[]'}
+							_0: {ctor: '_Tuple2', _0: 'overflow', _1: 'hidden'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'overflow-y', _1: 'auto'},
+								_1: {ctor: '[]'}
+							}
 						}
-					}
-				}),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _user$project$Views_Leaders$nav,
-			_1: {
-				ctor: '::',
-				_0: _user$project$Views_Leaders$maybeList(response),
+					}),
 				_1: {ctor: '[]'}
-			}
-		});
-};
+			},
+			{
+				ctor: '::',
+				_0: _user$project$Views_Leaders$nav,
+				_1: {
+					ctor: '::',
+					_0: _user$project$Views_Leaders$maybeLsList(lsResponse),
+					_1: {
+						ctor: '::',
+						_0: _user$project$Views_Leaders$maybeRsList(rsResponse),
+						_1: {ctor: '[]'}
+					}
+				}
+			});
+	});
 
 var _user$project$Views_Accidents$view = A2(
 	_elm_lang$html$Html$div,
@@ -16627,7 +16591,7 @@ var _user$project$Views_Dashboard$page = function (model) {
 	var _p0 = model.route;
 	switch (_p0.ctor) {
 		case 'LeadersRoute':
-			return _user$project$Views_Leaders$view(model.lsLeaders);
+			return A2(_user$project$Views_Leaders$view, model.lsLeaders, model.rsLeaders);
 		case 'StateCrimesRoute':
 			return _user$project$Views_Crimes$view;
 		case 'CityAccidentsRoutes':
@@ -16870,7 +16834,16 @@ var _user$project$Main$init = function (location) {
 	return {
 		ctor: '_Tuple2',
 		_0: _user$project$Models$initialModel(currentRoute),
-		_1: _user$project$Commands$fetchLeaders
+		_1: _elm_lang$core$Platform_Cmd$batch(
+			{
+				ctor: '::',
+				_0: _user$project$Commands$fetchLSLeaders,
+				_1: {
+					ctor: '::',
+					_0: _user$project$Commands$fetchRSLeaders,
+					_1: {ctor: '[]'}
+				}
+			})
 	};
 };
 var _user$project$Main$main = A2(

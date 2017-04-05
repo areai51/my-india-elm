@@ -7,11 +7,12 @@ import Models exposing (Leader)
 import RemoteData exposing (WebData)
 
 
-view : WebData (List Leader) -> Html Msg
-view response =
+view : WebData (List Leader) -> WebData (List Leader) -> Html Msg
+view lsResponse rsResponse =
     div [ style [("height", "100%"), ("overflow", "hidden"), ("overflow-y", "auto")]]
         [ nav
-        , maybeList response
+        , maybeLsList lsResponse
+        , maybeRsList rsResponse
         ]
 
 
@@ -20,8 +21,8 @@ nav =
     h1 [ ] [ text "Our Leaders" ]
 
 
-maybeList : WebData (List Leader) -> Html Msg
-maybeList response =
+maybeLsList : WebData (List Leader) -> Html Msg
+maybeLsList response =
     case response of
         RemoteData.NotAsked ->
             text ""
@@ -30,18 +31,34 @@ maybeList response =
             text "Loading..."
 
         RemoteData.Success leaders ->
-            list (List.reverse (List.sortBy .attendance leaders))
+            list (List.reverse (List.sortBy .attendance leaders)) "Lok Sabha 15 - Attendence"
 
         RemoteData.Failure error ->
             text (toString error)
 
 
-list : List Leader -> Html Msg
-list leaders =
+maybeRsList : WebData (List Leader) -> Html Msg
+maybeRsList response =
+    case response of
+        RemoteData.NotAsked ->
+            text ""
+
+        RemoteData.Loading ->
+            text "Loading..."
+
+        RemoteData.Success leaders ->
+            list (List.reverse (List.sortBy .attendance leaders)) "Rajya Sabha 15 - Attendence"
+
+        RemoteData.Failure error ->
+            text (toString error)
+
+
+list : List Leader -> String -> Html Msg
+list leaders title =
     table [ class "table", style [("width", "50%"), ("height", "100%")] ]
         [ thead [class "thead-inverse"] [ tr []
                     [ th [] [ text "#" ] ,
-                      th [ colspan 2 ] [ text "Lok Sabha 15 - Attendence" ]
+                      th [ colspan 2 ] [ text title ]
                     ]
                 ], 
           tbody [] (List.indexedMap leaderRow leaders)

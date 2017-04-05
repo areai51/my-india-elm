@@ -2,7 +2,6 @@ module Views.Dashboard exposing (..)
 
 import Html exposing (Html, div, text, nav, img, a, button)
 import Html.Attributes exposing (class, href, src, height, width, style)
-import Html.Events exposing (onClick)
 import Msgs exposing (Msg)
 import Models exposing (Model)
 import Views.Leaders
@@ -38,7 +37,7 @@ page : Model -> Html Msg
 page model =
     case model.route of
         Models.LeadersRoute ->
-            Views.Leaders.view model.lsLeaders
+            Views.Leaders.view model.lsLeaders model.rsLeaders
 
         Models.StateCrimesRoute ->
             Views.Crimes.view
