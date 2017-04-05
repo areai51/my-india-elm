@@ -3,6 +3,7 @@ module Update exposing (..)
 import Msgs exposing (Msg(..))
 import Models exposing (Model)
 import Routing exposing (parseLocation)
+import Commands exposing (fetchRivers)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -14,9 +15,14 @@ update msg model =
         Msgs.OnFetchRSLeaders response ->
             ( { model | rsLeaders = response }, Cmd.none )
 
+        Msgs.OnFetchRivers response ->
+            ( { model | rivers = response }, Cmd.none )
+
         Msgs.OnLocationChange location ->
             let
                 newRoute =
                     parseLocation location
             in
-                ( { model | route = newRoute }, Cmd.none )
+                ( { model | route = newRoute }, fetchRivers )
+
+

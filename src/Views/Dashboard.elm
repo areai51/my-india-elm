@@ -2,6 +2,7 @@ module Views.Dashboard exposing (..)
 
 import Html exposing (Html, div, text, nav, img, a, button)
 import Html.Attributes exposing (class, href, src, height, width, style)
+import Html.Events exposing (onClick)
 import Msgs exposing (Msg)
 import Models exposing (Model)
 import Views.Leaders
@@ -46,7 +47,7 @@ page model =
             Views.Accidents.view
 
         Models.RiversRoute ->
-            Views.Rivers.view
+            Views.Rivers.view model.rivers
 
         Models.NotFoundRoute ->
             notFoundView
