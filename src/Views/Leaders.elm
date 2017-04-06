@@ -55,7 +55,7 @@ maybeRsList response =
 
 list : List Leader -> String -> Html Msg
 list leaders title =
-    table [ class "table", style [("width", "50%"), ("height", "100%")] ]
+    table [ class "table", style [("width", "50%"), ("height", "100%"), ("display", "inline-block")] ]
         [ thead [class "thead-inverse"] [ tr []
                     [ th [] [ text "#" ] ,
                       th [ colspan 2 ] [ text title ]

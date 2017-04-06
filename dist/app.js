@@ -16134,7 +16134,11 @@ var _user$project$Views_Leaders$list = F2(
 							_1: {
 								ctor: '::',
 								_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'display', _1: 'inline-block'},
+									_1: {ctor: '[]'}
+								}
 							}
 						}),
 					_1: {ctor: '[]'}
