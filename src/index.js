@@ -1,9 +1,7 @@
 'use strict';
 
-//require('jquery');
-//require('tether');
-require('bootstrap');
-require('bootstrap/dist/css/bootstrap.css');
+require('./assets/normalize.css');
+require('./assets/main.css');
 
 // Require index.html so it gets copied to dist
 require('./index.html');

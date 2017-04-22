@@ -11,8 +11,10 @@ view : WebData (List Leader) -> WebData (List Leader) -> Html Msg
 view lsResponse rsResponse =
     div [ style [("height", "100%"), ("overflow", "hidden"), ("overflow-y", "auto")]]
         [ nav
-        , maybeLsList lsResponse
-        , maybeRsList rsResponse
+        , div [ class "our-leaders__data-list-wrapper" ] [
+            maybeLsList lsResponse
+            , maybeRsList rsResponse
+            ]
         ]
 
 
@@ -55,35 +57,41 @@ maybeRsList response =
 
 list : List Leader -> String -> Html Msg
 list leaders title =
-    table [ class "table", style [("width", "50%"), ("height", "100%"), ("display", "inline-block")] ]
-        [ thead [class "thead-inverse"] [ tr []
-                    [ th [] [ text "#" ] ,
-                      th [ colspan 2 ] [ text title ]
+    div [ class "our-leaders__data-list" ]
+            [ div [ class "data-list__wrapper" ]
+                [ div [ class "data-list__container" ]
+                    [ h2 [ class "data-list__title" ]
+                        [ span []
+                            [ text title ]
+                        ]
+                    , div [ class "data-list__list" ] (List.indexedMap leaderRow leaders)
                     ]
-                ], 
-          tbody [] (List.indexedMap leaderRow leaders)
-        ]
-
+                ]
+            ]
 
 leaderRow : Int -> Leader -> Html Msg
 leaderRow index leader =
-    tr []
-        [
-          th [ scope "row" ] [ text (toString (index + 1)) ]
-        , td [] [ 
-              p [ class "font-weight-bold" ] [ text leader.name ],
-              p [ class "font-italic" ] [ text leader.state ]
-            ]
-        , td [] [
-              div [ class "progress", style [("width", "200px")] ] [ 
-                  div [ 
-                      class "progress-bar",
-                      style [ ("width", (toString (round (leader.attendance))) ++ "%") ],
-                      attribute "role" "progressbar",
-                      attribute "aria-valuenow" (toString (round (leader.attendance))),
-                      attribute "aria-valuemin" "0",
-                      attribute "aria-valuemax" "100"
-                      ] [ text ((toString (round (leader.attendance))) ++ "%") ]
-               ]
-            ]
-        ]
+    ul [ class "data-row" ]
+                            [ li [ class "data-column" ]
+                                [ span [ class "data-list__serial-no" ]
+                                    [ text (toString (index + 1)) ]
+                                ]
+                            , li [ class "data-column" ]
+                                [ span [ class "data-list__member-name" ]
+                                    [ text leader.name ]
+                                , span [ class "data-list__member-state" ]
+                                    [ em []
+                                        [ text leader.state ]
+                                    ]
+                                ]
+                            , li [ class "data-column" ]
+                                [ div [ class "progress-bar horizontal" ]
+                                    [ div [ class "progress-track" ]
+                                        [ span [ class "progress-info" ]
+                                            [ text ((toString (round (leader.attendance))) ++ "%") ]
+                                        , div [ class "progress-fill", style [ ("width", (toString (round (leader.attendance))) ++ "%") ] ]
+                                            []
+                                        ]
+                                    ]
+                                ]
+                            ]

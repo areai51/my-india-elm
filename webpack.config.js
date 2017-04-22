@@ -1,3 +1,4 @@
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require("path");
 var webpack = require("webpack");
 
@@ -56,7 +57,10 @@ module.exports = {
            $: "jquery",
            jQuery: "jquery",
            'Tether': 'tether'
-       })
+       }),
+       new CopyWebpackPlugin([
+            { from: './src/assets/img', to: path.resolve(__dirname + '/dist') }
+        ])
     ],
 
   devServer: {
