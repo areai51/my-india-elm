@@ -38,10 +38,9 @@ maybeList response =
 
 list : List River -> Html Msg
 list rivers =
-    table [ class "table", style [("width", "100%"), ("height", "100%")] ]
+    table [ class "rivers", style [("width", "100%"), ("height", "100%")] ]
         [ thead [class "thead-inverse"] [ tr []
-                    [ th [] [ text "#" ],
-                      th [] [ text "State" ],
+                    [ th [] [ text "State" ],
                       th [] [ text "Location" ],
                       th [] [ text "Max Temp." ],
                       th [] [ text "Min Temp." ],
@@ -57,8 +56,7 @@ riverRow : Int -> River -> Html Msg
 riverRow index river =
     tr []
         [
-          th [ scope "row" ] [ text (toString (index + 1)) ]
-        , td [] [ text river.state ]
+          td [] [ text river.state ]
         , td [] [ text river.location ]
         , td [] [ text river.maxTemp ]
         , td [] [ text river.minTemp ]

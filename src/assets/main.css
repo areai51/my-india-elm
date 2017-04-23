@@ -245,3 +245,13 @@ ul.data-row {
   font-size: 12px;
   line-height: 20px;
 }
+
+table.rivers{
+background-color:#fff;
+padding: 5px;
+}
+
+table.rivers td{
+    border: thin solid #eaeaea;
+    padding:3px 5px; 
+}
