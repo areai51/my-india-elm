@@ -3,7 +3,7 @@ module Update exposing (..)
 import Msgs exposing (Msg(..))
 import Models exposing (Model, Route(..))
 import Routing exposing (parseLocation)
-import Commands exposing (fetchRivers)
+import Commands exposing (fetchRivers, renderChart)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -33,10 +33,10 @@ loadRouteData route =
             Cmd.none
 
         Models.StateCrimesRoute ->
-            Cmd.none
+            renderChart "crimes"
 
         Models.CityAccidentsRoutes ->
-            Cmd.none
+            renderChart "accidents"
 
         Models.RiversRoute ->
             fetchRivers

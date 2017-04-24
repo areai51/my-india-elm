@@ -1,4 +1,4 @@
-module Commands exposing (..)
+port module Commands exposing (..)
 
 import Http
 import Json.Decode as Decode
@@ -6,6 +6,9 @@ import Json.Decode.Pipeline exposing (decode, required, optional, hardcoded)
 import Msgs exposing (Msg)
 import Models exposing (Leader, River, Model)
 import RemoteData
+
+
+port renderChart : String -> Cmd msg
 
 
 fetchLSLeaders : Cmd Msg
