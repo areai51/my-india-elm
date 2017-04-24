@@ -26,6 +26,7 @@ type alias Leader =
     , state : String
     }
 
+
 type alias River =
     { state : String
     , location : String

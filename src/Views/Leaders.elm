@@ -9,10 +9,10 @@ import RemoteData exposing (WebData)
 
 view : WebData (List Leader) -> WebData (List Leader) -> Html Msg
 view lsResponse rsResponse =
-    div [ style [("height", "100%"), ("overflow", "hidden"), ("overflow-y", "auto")]]
+    div [ style [ ( "height", "100%" ), ( "overflow", "hidden" ), ( "overflow-y", "auto" ) ] ]
         [ nav
-        , div [ class "our-leaders__data-list-wrapper" ] [
-            maybeLsList lsResponse
+        , div [ class "our-leaders__data-list-wrapper" ]
+            [ maybeLsList lsResponse
             , maybeRsList rsResponse
             ]
         ]
@@ -20,7 +20,7 @@ view lsResponse rsResponse =
 
 nav : Html msg
 nav =
-    h1 [ ] [ text "Our Leaders" ]
+    h1 [] [ text "Our Leaders" ]
 
 
 maybeLsList : WebData (List Leader) -> Html Msg
@@ -58,40 +58,41 @@ maybeRsList response =
 list : List Leader -> String -> Html Msg
 list leaders title =
     div [ class "our-leaders__data-list" ]
-            [ div [ class "data-list__wrapper" ]
-                [ div [ class "data-list__container" ]
-                    [ h2 [ class "data-list__title" ]
-                        [ span []
-                            [ text title ]
-                        ]
-                    , div [ class "data-list__list" ] (List.indexedMap leaderRow leaders)
+        [ div [ class "data-list__wrapper" ]
+            [ div [ class "data-list__container" ]
+                [ h2 [ class "data-list__title" ]
+                    [ span []
+                        [ text title ]
                     ]
+                , div [ class "data-list__list" ] (List.indexedMap leaderRow leaders)
                 ]
             ]
+        ]
+
 
 leaderRow : Int -> Leader -> Html Msg
 leaderRow index leader =
     ul [ class "data-row" ]
-                            [ li [ class "data-column" ]
-                                [ span [ class "data-list__serial-no" ]
-                                    [ text (toString (index + 1)) ]
-                                ]
-                            , li [ class "data-column" ]
-                                [ span [ class "data-list__member-name" ]
-                                    [ text leader.name ]
-                                , span [ class "data-list__member-state" ]
-                                    [ em []
-                                        [ text leader.state ]
-                                    ]
-                                ]
-                            , li [ class "data-column" ]
-                                [ div [ class "progress-bar horizontal" ]
-                                    [ div [ class "progress-track" ]
-                                        [ span [ class "progress-info" ]
-                                            [ text ((toString (round (leader.attendance))) ++ "%") ]
-                                        , div [ class "progress-fill", style [ ("width", (toString (round (leader.attendance))) ++ "%") ] ]
-                                            []
-                                        ]
-                                    ]
-                                ]
-                            ]
+        [ li [ class "data-column" ]
+            [ span [ class "data-list__serial-no" ]
+                [ text (toString (index + 1)) ]
+            ]
+        , li [ class "data-column" ]
+            [ span [ class "data-list__member-name" ]
+                [ text leader.name ]
+            , span [ class "data-list__member-state" ]
+                [ em []
+                    [ text leader.state ]
+                ]
+            ]
+        , li [ class "data-column" ]
+            [ div [ class "progress-bar horizontal" ]
+                [ div [ class "progress-track" ]
+                    [ span [ class "progress-info" ]
+                        [ text ((toString (round (leader.attendance))) ++ "%") ]
+                    , div [ class "progress-fill", style [ ( "width", (toString (round (leader.attendance))) ++ "%" ) ] ]
+                        []
+                    ]
+                ]
+            ]
+        ]

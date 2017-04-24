@@ -9,7 +9,7 @@ import RemoteData exposing (WebData)
 
 view : WebData (List River) -> Html Msg
 view response =
-    div [ style [("height", "100%"), ("overflow", "hidden"), ("overflow-y", "auto")]]
+    div [ style [ ( "height", "100%" ), ( "overflow", "hidden" ), ( "overflow-y", "auto" ) ] ]
         [ nav
         , maybeList response
         ]
@@ -17,7 +17,7 @@ view response =
 
 nav : Html msg
 nav =
-    h1 [ ] [ text "Our Rivers" ]
+    h1 [] [ text "Our Rivers" ]
 
 
 maybeList : WebData (List River) -> Html Msg
@@ -38,25 +38,25 @@ maybeList response =
 
 list : List River -> Html Msg
 list rivers =
-    table [ class "rivers", style [("width", "100%"), ("height", "100%")] ]
-        [ thead [class "thead-inverse"] [ tr []
-                    [ th [] [ text "State" ],
-                      th [] [ text "Location" ],
-                      th [] [ text "Max Temp." ],
-                      th [] [ text "Min Temp." ],
-                      th [] [ text "PH Value Max" ],
-                      th [] [ text "PH Value Min" ]
-                    ]
-                ], 
-          tbody [] (List.indexedMap riverRow rivers)
+    table [ class "rivers", style [ ( "width", "100%" ), ( "height", "100%" ) ] ]
+        [ thead [ class "thead-inverse" ]
+            [ tr []
+                [ th [] [ text "State" ]
+                , th [] [ text "Location" ]
+                , th [] [ text "Max Temp." ]
+                , th [] [ text "Min Temp." ]
+                , th [] [ text "PH Value Max" ]
+                , th [] [ text "PH Value Min" ]
+                ]
+            ]
+        , tbody [] (List.indexedMap riverRow rivers)
         ]
 
 
 riverRow : Int -> River -> Html Msg
 riverRow index river =
     tr []
-        [
-          td [] [ text river.state ]
+        [ td [] [ text river.state ]
         , td [] [ text river.location ]
         , td [] [ text river.maxTemp ]
         , td [] [ text river.minTemp ]

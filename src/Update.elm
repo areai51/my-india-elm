@@ -26,7 +26,7 @@ update msg model =
                 ( { model | route = newRoute }, loadRouteData newRoute )
 
 
-loadRouteData : Route -> (Cmd Msg)
+loadRouteData : Route -> Cmd Msg
 loadRouteData route =
     case route of
         Models.LeadersRoute ->
@@ -37,7 +37,7 @@ loadRouteData route =
 
         Models.CityAccidentsRoutes ->
             Cmd.none
-        
+
         Models.RiversRoute ->
             fetchRivers
 

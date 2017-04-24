@@ -38,6 +38,7 @@ fetchRSLeadersUrl : String
 fetchRSLeadersUrl =
     "https://data.gov.in/node/982241/datastore/export/json"
 
+
 fetchRiversUrl : String
 fetchRiversUrl =
     "https://data.gov.in/api/datastore/resource.json?resource_id=2cfdb04a-e7e6-484b-8728-4cafbfe936e8&api-key=8064b14f9bd1e31d1e5a723a40b4fac1"
@@ -63,8 +64,11 @@ lsLeaderDecoder =
     let
         sessionsAttendedDecoder =
             Decode.index 7 Decode.float
-                |> Decode.andThen (\total -> lsAttendanceDecoder
-                |> Decode.map (\attended -> (attended / total) * 100))
+                |> Decode.andThen
+                    (\total ->
+                        lsAttendanceDecoder
+                            |> Decode.map (\attended -> (attended / total) * 100)
+                    )
     in
         Decode.map3 Leader
             sessionsAttendedDecoder
@@ -77,9 +81,17 @@ rsLeaderDecoder =
     let
         sessionsAttendedDecoder =
             Decode.index 7 Decode.string
-                |> Decode.andThen (\total -> rsAttendanceDecoder
-                |> Decode.map (\attended -> (Result.withDefault 0 (String.toFloat attended) / 
-                    (Result.withDefault 0 (String.toFloat total)) * 100)))
+                |> Decode.andThen
+                    (\total ->
+                        rsAttendanceDecoder
+                            |> Decode.map
+                                (\attended ->
+                                    (Result.withDefault 0 (String.toFloat attended)
+                                        / (Result.withDefault 0 (String.toFloat total))
+                                        * 100
+                                    )
+                                )
+                    )
     in
         Decode.map3 Leader
             sessionsAttendedDecoder

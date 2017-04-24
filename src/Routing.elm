@@ -25,17 +25,21 @@ parseLocation location =
         Nothing ->
             NotFoundRoute
 
+
 leadersPath : String
 leadersPath =
     "#leaders"
+
 
 crimesPath : String
 crimesPath =
     "#crimes"
 
+
 accidentsPath : String
 accidentsPath =
     "#accidents"
+
 
 riversPath : String
 riversPath =

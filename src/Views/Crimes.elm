@@ -5,6 +5,6 @@ import Html.Attributes exposing (class, style, colspan, scope, attribute)
 import Msgs exposing (Msg)
 
 
-view :  Html msg
+view : Html msg
 view =
     div [] [ text "Crimes" ]
