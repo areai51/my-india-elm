@@ -2,9 +2,9 @@
 
 require('./assets/normalize.css');
 require('./assets/main.css');
-
-// Require index.html so it gets copied to dist
 require('./index.html');
+
+import AccidentsChartModule from './accidents-chart';
 
 var Elm = require('./Main.elm');
 var mountNode = document.body;
@@ -20,7 +20,9 @@ var requestAnimationFrame =
 var renderChartCallback = function(chartType) {
   requestAnimationFrame(function() {
     if(document.getElementById('bar-chart') !== null) {
-      console.log(chartType.toUpperCase());
+		AccidentsChartModule.getAccidentData(function (data) {
+			console.log(JSON.parse(data));
+		});
     }
   });
 }
