@@ -18,11 +18,12 @@ var requestAnimationFrame =
        window.msRequestAnimationFrame;
 
 var renderChartCallback = function(chartType) {
+  chartType = chartType.toUpperCase();
   requestAnimationFrame(function() {
     if(document.getElementById('bar-chart') !== null) {
-		AccidentsChartModule.getAccidentData(function (data) {
-			console.log(JSON.parse(data));
-		});
+      if (chartType === 'ACCIDENTS') {
+        AccidentsChartModule.getAccidentData();
+      }
     }
   });
 }

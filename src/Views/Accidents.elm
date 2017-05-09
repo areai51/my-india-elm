@@ -21,6 +21,6 @@ nav =
 barChart : Html msg
 barChart =
     div [ class "bar-chart__wrapper" ]
-        [ canvas [ class "bar-chart", attribute "height" "400", id "bar-chart", attribute "width" "400" ]
+        [ canvas [ class "bar-chart", attribute "height" "600", id "bar-chart", attribute "width" "400" ]
             []
         ]
