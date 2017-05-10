@@ -20,7 +20,7 @@ nav =
 
 barChart : Html msg
 barChart =
-    div [ class "bar-chart__wrapper" ]
+    div [ class "bar-chart__wrapper", style [ ( "background", "#fff" ), ( "padding", "20px" ) ] ]
         [ canvas [ class "bar-chart", attribute "height" "600", id "bar-chart", attribute "width" "400" ]
             []
         ]

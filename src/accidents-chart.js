@@ -13,8 +13,6 @@ const AccidentsChartModule = (function() {
             chartDataSets: []
         };
 
-        // me._barComponent = new BarChartComponent();
-
         const _apiUrl = 'https://data.gov.in/node/735301/datastore/export/json';
 
         const AccidentInCitiesModel = {

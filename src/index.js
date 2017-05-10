@@ -5,6 +5,7 @@ require('./assets/main.css');
 require('./index.html');
 
 import AccidentsChartModule from './accidents-chart';
+import CrimesChartModule from './crimes-chart';
 
 var Elm = require('./Main.elm');
 var mountNode = document.body;
@@ -23,6 +24,8 @@ var renderChartCallback = function(chartType) {
     if(document.getElementById('bar-chart') !== null) {
       if (chartType === 'ACCIDENTS') {
         AccidentsChartModule.getAccidentData();
+      } else if (chartType === 'CRIMES') {
+        CrimesChartModule.getCrimeData();
       }
     }
   });
