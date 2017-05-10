@@ -6,23 +6,19 @@ My India is an app that gives statistical Information on various aspects of Indi
 
 You can see it in action here https://areai51.github.io/my-india-elm/
 
-## Build the project on a local system
-Install [elm](https://guide.elm-lang.org/install.html)
+## Setting up
+0. Clone project `git clone https://github.com/areai51/my-india-elm.git`
 
+1. Install [elm](https://guide.elm-lang.org/install.html).
+
+2.
 ~~~~
-npm install
-~~~~
-OR
-~~~~
-yarn
+"npm install" OR "yarn"
 ~~~~
 
+3.
 ~~~~
-npm run build
-~~~~
-OR
-~~~~
-yarn build
+"npm run build" OR "yarn build"
 ~~~~
 
 ## Development server
