@@ -8,41 +8,140 @@ const CrimesChartModule = (function() {
         const me = this;
 
         me.chartOptions = {
-            chartTitle: 'Fatal Accidents',
+            chartTitle: 'Crimes Against Women',
             chartDataLabels: [],
             chartDataSets: []
         };
 
-        const _apiUrl = 'https://data.gov.in/node/735301/datastore/export/json';
+        const _apiUrl = 'https://data.gov.in/node/89971/datastore/export/json';
 
-        const AccidentInCitiesModel = {
-            id: function(data, fields, index) {
-                return index;
-            },
-            dataInfo: function(data, fields, index) {
-                let info = {};
+        var CrimesState;
+        (function (CrimesState) {
+            CrimesState[CrimesState["STATE"] = 1] = "STATE";
+            CrimesState[CrimesState["UT"] = 2] = "UT";
+            CrimesState[CrimesState["STATE_TOTAL"] = 3] = "STATE_TOTAL";
+            CrimesState[CrimesState["UT_TOTAL"] = 4] = "UT_TOTAL";
+        })(CrimesState || (CrimesState = {}));
 
-                if (fields) {
-                    for (let i = 0; i < fields.length; i++) {
-                        info['label_' + i] = fields[i].label;
-                        info['data_' + i] = data[i];
-                    }
-                }
+        let STATES_LIST = [
+          'ANDHRA PRADESH',
+          'ARUNACHAL PRADESH',
+          'ASSAM',
+          'BIHAR',
+          'CHHATTISGARH',
+          'GOA',
+          'GUJARAT',
+          'Haryana',
+          'Himachal Pradesh',
+          'Jammu & Kashmir',
+          'Jharkhand',
+          'Karnataka',
+          'Kerala',
+          'Madhya Pradesh',
+          'Maharashtra',
+          'Manipur',
+          'Meghalaya',
+          'Mizoram',
+          'Nagaland',
+          'Odisha',
+          'Punjab',
+          'Rajasthan',
+          'Sikkim',
+          'Tamil Nadu',
+          'Telangana',
+          'Tripura',
+          'Uttar Pradesh',
+          'Uttarakhand',
+          'West Bengal'
+        ];
 
-                return info;
-            },
-            cityName: function(data, fields, index) {
-                let city = this.dataInfo(data, fields, index);
-                return city.data_0;
-            }
+        let UNION_TERRITORIES_LIST = [
+          'ANDAMAN AND NICOBAR ISLANDS',
+          'CHANDIGARH',
+          'DADAR AND NAGAR HAVELI',
+          'DAMAN AND DIU',
+          'DELHI',
+          'LAKSHADWEEP',
+          'PUDUCHERRY'
+        ];
+
+        let MISC_KEYWORDS = {
+          'FOR_STATE'  : ['TOTAL (STATES)'],
+          'FOR_UT'     : ['TOTAL (UTs)'],
+          'FOR_CRIMES' : ['TOTAL CRIMES AGAINST WOMEN']
         };
 
-        const _objectBasedMap = (objectMap) => (dataList, fieldList) => dataList.map((data, index) => Object.keys(objectMap).reduce((memo, key) => {
-            memo[key] = objectMap[key].apply(objectMap, [data, fieldList, index]);
-            return memo;
-        }, {}));
+        const StateCrimesModel = {
+          id: function(data, fields, index) {
+            return index;
+          },
+          stateInfo: function(data, fields) {
+            let stateType = null;
+            let stateName = data[0];
 
-        const _simpleData = _objectBasedMap(AccidentInCitiesModel);
+            STATES_LIST.map(function(state) {
+              if (state.toLowerCase() === stateName.toLowerCase()) {
+                stateType = CrimesState[1];
+              }
+            });
+            UNION_TERRITORIES_LIST.map(function(ut) {
+              if (ut.toLowerCase() === stateName.toLowerCase()) {
+                stateType = CrimesState[2];
+              }
+            });
+            MISC_KEYWORDS.FOR_STATE.map(function(miscState) {
+              if (miscState.toLowerCase() === stateName.toLowerCase()) {
+                stateType = CrimesState[3];
+              }
+            });
+            MISC_KEYWORDS.FOR_UT.map(function(miscUt) {
+              if (miscUt.toLowerCase() === stateName.toLowerCase()) {
+                stateType = CrimesState[4];
+              }
+            });
+
+            return {
+              type: stateType,
+              name: stateName
+            };
+          },
+          crimeInfo: function(data, fields) {
+            return {
+              type: fields[1].label,
+              label: data[1],
+              byMaleBelow18Y: {
+                label: fields[2].label,
+                value: data[2]
+              },
+              byMaleBetween18To30Y: {
+                label: fields[4].label,
+                value: data[4]
+              },
+              byMaleBetween30To45Y: {
+                label: fields[6].label,
+                value: data[6]
+              },
+              byMaleBetween45To60Y: {
+                label: fields[8].label,
+                value: data[8]
+              },
+              byMaleAbove60Y: {
+                label: fields[10].label,
+                value: data[10]
+              }
+            };
+          }
+        };
+
+        const _objectBasedMap = (objectMap) =>
+          (dataList, fieldList) =>
+            dataList.map((data, index) =>
+              Object.keys(objectMap).reduce((memo, key) => {
+                memo[key] = objectMap[key].apply(objectMap, [data, fieldList, index]);
+                  return memo;
+              }, {}));
+
+        const _simpleData = _objectBasedMap(StateCrimesModel);
 
         me.getCrimeData = function() {
 
@@ -57,8 +156,8 @@ const CrimesChartModule = (function() {
                 if (xhr.readyState === DONE) {
                     if (xhr.status === OK) {
                         const response = JSON.parse(xhr.responseText);
-                        me.accidentsData = _simpleData(response.data, response.fields);
-                        me.accidentsClass = new AccidentInCitiesData(me.accidentsData);
+                        me.crimesData = _simpleData(response.data, response.fields);
+                        // me.accidentsClass = new AccidentInCitiesData(me.accidentsData);
                         me.setChartOptions();
                         me._barComponent = new BarChartComponent(me.chartOptions);
                         me._barComponent.waitingForChartData();
@@ -70,127 +169,68 @@ const CrimesChartModule = (function() {
 
         me.setChartOptions = function() {
             clearChartOptions();
-            let CITIES_ARRAY = me.accidentsClass.getTotalCities();
-            me.chartOptions.chartDataLabels.push(CITIES_ARRAY);
+            let filteredData = me.getFilteredDataByStateAndTotalCrime();
 
-            me.setChartDataSets();
+            me.setChartDataLabels(filteredData);
+            me.setChartDataSets(filteredData);
         };
+
+        me.getFilteredDataByStateAndTotalCrime = () => {
+          return me.crimesData.filter(function (obj) {
+            return obj.stateInfo.type === CrimesState[1] && obj.crimeInfo.label === MISC_KEYWORDS.FOR_CRIMES[0];
+          });
+        }
 
         function clearChartOptions() {
           me.chartOptions.chartDataLabels.length = 0;
           me.chartOptions.chartDataSets.length = 0;
         }
 
-        me.setChartDataSets = function() {
-            let ds1 = {
-                label: this.accidentsClass.getLabelsForFatalAccidentsByYear().y2011,
-                data: this.accidentsClass.getTotalFatalAccidents2011(),
-                backgroundColor: 'rgba(234, 124, 58, 1)'
-            };
-            me.chartOptions.chartDataSets.push(ds1);
+        me.setChartDataLabels = (filteredData) => {
+            let STATES_ARRAY = Object.keys(filteredData).map(val => filteredData[val].stateInfo.name);
+            this.chartOptions.chartDataLabels.push(STATES_ARRAY);
+        }
 
-            let ds2 = {
-                label: this.accidentsClass.getLabelsForFatalAccidentsByYear().y2012,
-                data: this.accidentsClass.getTotalFatalAccidents2012(),
-                backgroundColor: 'rgba(252, 190, 42, 1)'
-            };
-            me.chartOptions.chartDataSets.push(ds2);
+        me.setChartDataSets = function(filteredData) {
+          let CRIME_BY_MALE_BELOW_18Y = Object.keys(filteredData).map(val => filteredData[val].crimeInfo.byMaleBelow18Y.value);
+          let ds1 = {
+            label: filteredData[0].crimeInfo.byMaleBelow18Y.label,
+            data: CRIME_BY_MALE_BELOW_18Y,
+            backgroundColor: 'rgba(255,99,132,1)'
+          };
+          this.chartOptions.chartDataSets.push(ds1);
 
-            let ds3 = {
-                label: this.accidentsClass.getLabelsForFatalAccidentsByYear().y2013,
-                data: this.accidentsClass.getTotalFatalAccidents2013(),
-                backgroundColor: 'rgba(68, 113, 192, 1)'
-            };
-            me.chartOptions.chartDataSets.push(ds3);
+          let CRIME_BY_MALE_BETWEEN_18TO30Y = Object.keys(filteredData).map(val => filteredData[val].crimeInfo.byMaleBetween18To30Y.value);
+          let ds2 = {
+            label: filteredData[0].crimeInfo.byMaleBetween18To30Y.label,
+            data: CRIME_BY_MALE_BETWEEN_18TO30Y,
+            backgroundColor: 'rgba(234, 124, 58, 1)'
+          };
+          this.chartOptions.chartDataSets.push(ds2);
 
-            let ds4 = {
-                label: this.accidentsClass.getLabelsForFatalAccidentsByYear().y2014,
-                data: this.accidentsClass.getTotalFatalAccidents2014(),
-                backgroundColor: 'rgba(112,170,75,1)'
-            };
-            me.chartOptions.chartDataSets.push(ds4);
-        };
+          let CRIME_BY_MALE_BETWEEN_30TO45Y = Object.keys(filteredData).map(val => filteredData[val].crimeInfo.byMaleBetween30To45Y.value);
+          let ds3 = {
+            label: filteredData[0].crimeInfo.byMaleBetween30To45Y.label,
+            data: CRIME_BY_MALE_BETWEEN_30TO45Y,
+            backgroundColor: 'rgba(111, 113, 114, 1)'
+          };
+          this.chartOptions.chartDataSets.push(ds3);
 
-    }
+          let CRIME_BY_MALE_BETWEEN_45TO60Y = Object.keys(filteredData).map(val => filteredData[val].crimeInfo.byMaleBetween45To60Y.value);
+          let ds4 = {
+            label: filteredData[0].crimeInfo.byMaleBetween45To60Y.label,
+            data: CRIME_BY_MALE_BETWEEN_45TO60Y,
+            backgroundColor: 'rgba(252, 190, 42, 1)'
+          };
+          this.chartOptions.chartDataSets.push(ds4);
 
-    function AccidentInCitiesData(_accidentInCitiesData) {
-
-        this._accidentInCitiesData = _accidentInCitiesData;
-
-        this.getTotalCities = function() {
-            return Object.keys(this._accidentInCitiesData).map(val => {
-                return this._accidentInCitiesData[val].cityName;
-            });
-        };
-
-        this.getLabelsForFatalAccidentsByYear = function() {
-            let year = {};
-
-            year['y2011'] = this._accidentInCitiesData[0].dataInfo.label_1;
-            year['y2012'] = this._accidentInCitiesData[0].dataInfo.label_5;
-            year['y2013'] = this._accidentInCitiesData[0].dataInfo.label_9;
-            year['y2014'] = this._accidentInCitiesData[0].dataInfo.label_14;
-
-            return year;
-        };
-
-        this.getLabelsForTotalAccidentsByYear = function() {
-            let year = {};
-
-            year['y2011'] = this._accidentInCitiesData[0].dataInfo.label_2;
-            year['y2012'] = this._accidentInCitiesData[0].dataInfo.label_6;
-            year['y2013'] = this._accidentInCitiesData[0].dataInfo.label_10;
-            year['y2014'] = this._accidentInCitiesData[0].dataInfo.label_18;
-
-            return year;
-        };
-
-        this.getTotalFatalAccidents2011 = function() {
-            return Object.keys(this._accidentInCitiesData).map(val => {
-                return this._accidentInCitiesData[val].dataInfo.data_1;
-            });
-        };
-
-        this.getTotalAccidents2011 = function() {
-            return Object.keys(this._accidentInCitiesData).map(val => {
-                return this._accidentInCitiesData[val].dataInfo.data_2;
-            });
-        };
-
-        this.getTotalFatalAccidents2012 = function() {
-            return Object.keys(this._accidentInCitiesData).map(val => {
-                return this._accidentInCitiesData[val].dataInfo.data_5;
-            });
-        };
-
-        this.getTotalAccidents2012 = function() {
-            return Object.keys(this._accidentInCitiesData).map(val => {
-                return this._accidentInCitiesData[val].dataInfo.data_6;
-            });
-        };
-
-        this.getTotalFatalAccidents2013 = function() {
-            return Object.keys(this._accidentInCitiesData).map(val => {
-                return this._accidentInCitiesData[val].dataInfo.data_9;
-            });
-        };
-
-        this.getTotalAccidents2013 = function() {
-            return Object.keys(this._accidentInCitiesData).map(val => {
-                return this._accidentInCitiesData[val].dataInfo.data_10;
-            });
-        };
-
-        this.getTotalFatalAccidents2014 = function() {
-            return Object.keys(this._accidentInCitiesData).map(val => {
-                return this._accidentInCitiesData[val].dataInfo.data_14;
-            });
-        };
-
-        this.getTotalAccidents2014 = function() {
-            return Object.keys(this._accidentInCitiesData).map(val => {
-                return this._accidentInCitiesData[val].dataInfo.data_18;
-            });
+          let CRIME_BY_MALE_ABOVE_60Y = Object.keys(filteredData).map(val => filteredData[val].crimeInfo.byMaleAbove60Y.value);
+          let ds5 = {
+            label: filteredData[0].crimeInfo.byMaleAbove60Y.label,
+            data: CRIME_BY_MALE_ABOVE_60Y,
+            backgroundColor: 'rgba(68, 113, 192, 1)'
+          };
+          this.chartOptions.chartDataSets.push(ds5);
         };
 
     }
